@@ -1,6 +1,8 @@
 
 require('dotenv').config(); // Load environment variables from .env file
 
+
+const { mongoose } = require('./db/mongoose');
 // Access environment variables
 const PORT = process.env.PORT;
 
