@@ -1,9 +1,12 @@
+
+require('dotenv').config(); // Load environment variables from .env file
+
+// Access environment variables
+const PORT = process.env.PORT;
+
 const express = require('express');
 const app = express();
 const cors=require('cors');
-
-const { mongoose } = require('./db/mongoose');
-
 const bodyParser = require('body-parser');
 
 // Load in the mongoose models
@@ -59,6 +62,6 @@ app.get('/blogs/:id', (req, res) => {
 
 
 
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
     console.log("Server is listening on port 3000")
 });

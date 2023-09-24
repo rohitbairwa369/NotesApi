@@ -1,9 +1,14 @@
-// This file will handle connection logic to the MongoDB database
 
+require('dotenv').config(); // Load environment variables from .env file
+
+// Access environment variables
+const DATABASE_URL = process.env.DATABASE_URL;
+
+// This file will handle connection logic to the MongoDB database
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://rohittbairwaa11:mvjsWIQodenJnwKj@cluster0.tl3zbxo.mongodb.net/BlogManager', { useNewUrlParser: true }).then(() => {
+mongoose.connect(DATABASE_URL, { useNewUrlParser: true }).then(() => {
     console.log("Connected to MongoDB successfully :)");
 }).catch((e) => {
     console.log("Error while attempting to connect to MongoDB");
